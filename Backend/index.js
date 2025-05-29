@@ -19,12 +19,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://taupe-scone-41941e.netlify.app/' ,
-    methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token'],
-    exposedHeaders: ['Content-Range', 'X-Content-Range']
-}));
+app.use(cors());
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
