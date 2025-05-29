@@ -1,0 +1,197 @@
+.home-page {
+    min-height: 100vh;
+    background-color: var(--background-primary);
+}
+
+.Products-container {
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+.liked-title {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-top: -170px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: 50px;
+}
+
+.error-message {
+    text-align: center;
+    padding: 20px;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.error-message button {
+    background-color: var(--button-bg);
+    color: var(--profile-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.error-message button:hover {
+    background-color: var(--button-hover);
+}
+
+.no-products {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.no-products p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.browse-button {
+    background-color: var(--button-bg);
+    color: var(--profile-bg);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.browse-button:hover {
+    background-color: var(--button-hover);
+}
+
+.Products-Grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.Products-Card {
+    background: var(--card-background);
+    border-radius: 0px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    position: relative;
+    cursor: pointer;
+}
+
+.Products-Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.Products-Card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.Products-Card h3 {
+    padding: 15px 15px 5px 15px;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Products-Card .description {
+    padding: 0 15px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.Products-Card .price {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-top: auto;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.Products-Card .likeIcon {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-color);
+}
+
+.Products-Card .likeIcon:hover {
+    transform: scale(1.1);
+}
+
+.Products-Card .likeIcon:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .Products-container {
+        padding: 80px 15px 30px;
+    }
+
+    .liked-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .Products-Grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .Products-Card {
+        height: 400px;
+    }
+
+    .Products-Card img {
+        height: 160px;
+    }
+
+    .Products-Card .description {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+}
+

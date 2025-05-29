@@ -1,0 +1,272 @@
+.home {
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-primary);
+}
+
+.Products-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: var(--background-primary);
+}
+
+.home-nav {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px var(--shadow-color);
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.sort-select {
+    padding: 12px 25px;
+    background-color: var(--button-bg);
+    color: var(--profile-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 150px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.sort-select:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.sort-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--button-hover);
+}
+
+.sort-select option {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 10px;
+    border: none;
+}
+
+.search-section {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.search-bar {
+    flex: 1;
+    position: relative;
+}
+
+.search-bar input {
+    width: 95%;
+    padding: 12px 20px;
+    padding-left: 45px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--hover-color);
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+
+.search-bar::before {
+    content: "🔍";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.categories {
+    display: flex;
+    gap: 6.5px;
+    flex-wrap: wrap;
+}
+
+.category-button {
+    padding: 8px 20px;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.category-button:hover {
+    background-color: var(--button-bg);
+    color: var(--profile-text);
+    border-color: var(--button-bg);
+}
+
+.category-button.active {
+    background-color: var(--button-bg);
+    color: var(--profile-bg);
+    border-color: var(--button-bg);
+}
+
+.Products-Grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.Products-Card {
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    position: relative;
+}
+
+.Products-Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.Products-Card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.Products-Card h3 {
+    padding: 15px 15px 5px 15px;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Products-Card p {
+    padding: 1px 10px 5px 15px;
+    font-size: 1.1rem;
+}
+
+.Products-Card .description {
+    padding: 0 15px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.Products-Card .price {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-top: auto;
+    padding: 15px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .home-nav {
+        padding: 15px;
+    }
+
+    .search-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filter-button {
+        width: 100%;
+    }
+
+    .categories {
+        gap: 10px;
+    }
+
+    .category-button {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+    }
+
+    .Products-Grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .Products-Card {
+        height: 400px;
+    }
+
+    .Products-Card img {
+        height: 160px;
+    }
+
+    .Products-Card .description {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+}
+
+.Products-Card .likeIcon {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-color);
+}
+
+.Products-Card .likeIcon:hover {
+    transform: scale(1.1);
+}
+
+.Products-Card .likeIcon:focus {
+    outline: none;
+}
+
+
+
