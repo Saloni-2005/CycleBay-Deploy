@@ -125,7 +125,10 @@ productSchema.pre("save", function (next) {
   }
 
   const schema = getDescriptionSchema(this.category);
-  const error = schema.validateSync(this.description);
+  const modelName = `TempDescription_${this.category.replace(/\s+/g, '_')}`;
+  const TempModel = mongoose.models[modelName] || mongoose.model(modelName, schema);
+  const descDoc = new TempModel(this.description);
+  const error = descDoc.validateSync();
   if (error) return next(error);
   next();
 });
