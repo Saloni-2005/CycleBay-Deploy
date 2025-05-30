@@ -46,10 +46,7 @@ const createProductService = async (data, userId) => {
   }
 
   const schema = getDescriptionSchema(category);
-  const modelName = `TempDescription_${category.replace(/\s+/g, '_')}`;
-  const TempModel = mongoose.models[modelName] || mongoose.model(modelName, schema);
-  const descDoc = new TempModel(description);
-  const validationError = descDoc.validateSync();
+  const validationError = schema.validateSync(description);
   if (validationError) throw validationError;
   const newProduct = new Product({ name, desc, price, category, image, description, createdBy: userId });
   return await newProduct.save();
@@ -61,11 +58,9 @@ const updateProductService = async (id, userId, updateData) => {
   if (!product) return null;
   if (product.createdBy.toString() !== userId) throw new Error("Forbidden");
   if (updateData.description) {
-    const schema = getDescriptionSchema(updateData.category);
-    const modelName = `TempDescription_${updateData.category.replace(/\s+/g, '_')}`;
-    const TempModel = mongoose.models[modelName] || mongoose.model(modelName, schema);
-    const descDoc = new TempModel(updateData.description);
-    const validationError = descDoc.validateSync();
+    const category = updateData.category || product.category;
+    const schema = getDescriptionSchema(category);
+    const validationError = schema.validateSync(updateData.description);
     if (validationError) throw validationError;
   }
   Object.assign(product, updateData);
