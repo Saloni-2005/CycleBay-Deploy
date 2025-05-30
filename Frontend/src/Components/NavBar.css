@@ -51,7 +51,7 @@
     font-style: normal;
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 5px;
     margin: 0;
     padding: 0;
 }
@@ -228,8 +228,8 @@ button#dropdown-basic-button {
     height: 40px;
     width: auto;
     object-fit: contain;
-    margin-right: 15px;
     transition: transform 0.3s ease;
+    margin-bottom: 5px;
 }
 
 .theme-toggle {

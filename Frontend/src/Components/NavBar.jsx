@@ -120,7 +120,6 @@ function NavBar() {
                                     }
                                 >
                                     <Dropdown.Item onClick={() => handleNavigation('/profile')}>Your Profile</Dropdown.Item>
-                                    {/* <Dropdown.Item href="#/action-2">Your Ads</Dropdown.Item> */}
                                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                                 </DropdownButton>
                                 <span className="user-email">{userEmail}</span>
