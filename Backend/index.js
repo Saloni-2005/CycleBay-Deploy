@@ -41,12 +41,12 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "/404.html"));
-});
-
 app.use("/", (req, res) => {
     res.status(200).send("Application is running");
+});
+
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, "/404.html"));
 });
 
 app.listen(3000, (err) => {
