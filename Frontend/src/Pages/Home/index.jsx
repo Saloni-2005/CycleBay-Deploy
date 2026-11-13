@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../../Components/NavBar';
 import './home.css';
 import { useNavigate } from 'react-router-dom';
+import { getImageUrl } from '../../utils/image';
 
 function Home() {
     const navigate = useNavigate();
@@ -169,9 +170,12 @@ function Home() {
                         products.map((product, index) => (
                             <div key={index} className="Products-Card"
                               onClick={()=>productClick(product._id)}>
-                                <img 
-                                    src={`https://cyclebay-backend.onrender.com/uploads/${product.image}`}
-                                    alt={product.name} 
+                                <img
+                                    src={getImageUrl(product.image)}
+                                    alt={product.name}
+                                    onError={(e) => {
+                                        console.error("Image loading failed:", e.currentTarget.src);
+                                    }}
                                 />
                                 <h3>{product.name}</h3>
                                 <p className="description">{product.desc}</p>

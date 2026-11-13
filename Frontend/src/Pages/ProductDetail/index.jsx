@@ -3,6 +3,7 @@ import NavBar from '../../Components/NavBar'
 //import {jwtDecode} from 'jwt-decode'
 import {useParams} from 'react-router-dom'
 import './productDetail.css'
+import { getImageUrl } from '../../utils/image'
 
 function ProductDetail() {
   const {id} = useParams()
@@ -121,7 +122,14 @@ function ProductDetail() {
       <div className="product-container">
         <div className="content-wrapper">
           <div className="image-wrapper">
-            <img src={`https://cyclebay-backend.onrender.com/uploads/${product.image}`} alt={product.name} className="product-image" />
+            <img
+              src={getImageUrl(product.image)}
+              alt={product.name}
+              className="product-image"
+              onError={(e) => {
+                console.error("Image loading failed:", e.currentTarget.src);
+              }}
+            />
           </div>
 
           <div className="info-box">

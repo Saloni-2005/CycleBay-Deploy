@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../../Components/NavBar';
 import { useNavigate } from 'react-router-dom';
 import './liked.css';
+import { getImageUrl } from '../../utils/image';
 
 function LikedProducts() {
     const navigate = useNavigate();
@@ -133,9 +134,12 @@ function LikedProducts() {
                     <div className="Products-Grid">
                         {likedProducts.map((product) => (
                             <div key={product._id} className="Products-Card" onClick={() => productClick(product._id)}>
-                                <img 
-                                    src={`https://cyclebay-backend.onrender.com/uploads/${product.image}`}
-                                    alt={product.name} 
+                                <img
+                                    src={getImageUrl(product.image)}
+                                    alt={product.name}
+                                    onError={(e) => {
+                                        console.error("Image loading failed:", e.currentTarget.src);
+                                    }}
                                 />
                                 <h3>{product.name}</h3>
                                 <p className="description">{product.desc}</p>

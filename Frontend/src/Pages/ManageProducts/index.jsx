@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar';
 import axios from 'axios';
 import './manageProducts.css';
+import { getImageUrl } from '../../utils/image';
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -132,9 +133,12 @@ const ManageProducts = () => {
           <div className="products-grid">
             {products.map(product => (
               <div key={product._id} className="Products-Card">
-                <img 
-                  src={`https://cyclebay-backend.onrender.com/uploads/${product.image}`} 
+                <img
+                  src={getImageUrl(product.image)}
                   alt={product.name}
+                  onError={(e) => {
+                    console.error("Image loading failed:", e.currentTarget.src);
+                  }}
                 />
                 <h3>{product.name}</h3>
                 <p className="description">{product.desc}</p>

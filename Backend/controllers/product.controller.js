@@ -64,7 +64,6 @@ const createProduct = async (req, res) => {
       });
     }
 
-    const imageFileName = req.file.filename;
     let description;
     
     try {
@@ -78,7 +77,7 @@ const createProduct = async (req, res) => {
 
     const productData = {
       ...req.body,
-      image: imageFileName,
+      image: req.file ? `uploads/${req.file.filename}` : "",
       description
     };
 

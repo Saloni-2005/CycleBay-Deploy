@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar';
 import { profileAPI } from '../../services/api';
 import './Profile.css';
+import { getImageUrl } from '../../utils/image';
 
 function Profile() {
     const navigate = useNavigate();
@@ -205,7 +206,13 @@ function Profile() {
                         {userProducts.length > 0 ? (
                             userProducts.map(product => (
                                 <div key={product._id} className="listing-card">
-                                    <img src={`https://cyclebay-backend.onrender.com/uploads/${product.image}`} alt={product.name} />
+                                    <img
+                                        src={getImageUrl(product.image)}
+                                        alt={product.name}
+                                        onError={(e) => {
+                                            console.error("Image loading failed:", e.currentTarget.src);
+                                        }}
+                                    />
                                     <h3>{product.name}</h3>
                                     <p>${product.price}</p>
                                     <div className="product-actions">
